@@ -40,3 +40,29 @@ function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "O" : "X";
     statusText.innerHTML = 'Đến lượt của: <span id="turn">${curentPlayer}</span>'
 }
+
+function checkWinner() {
+    let roundWon = false;
+    for (let i = 0; i < winConditions.length; i++) {
+        const condition = winConditions[i];
+        const cellA = options[condition[0]];
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+    }
+    if (cellA === "" || cellB === "" || cellC === "") {
+        continue;
+    }
+    if (cellA === cellB && cellB === cellC) {
+        roundWon = true;
+        break;
+    }
+    if (roundWon) {
+        statusText.textContent = `Người chơi ${currentPlayer} chiến thắng!`;
+        running = false;
+    } else if (!options.includes("")) {
+        statusText.textContent = 'Hòa nhau!';
+        running = false;
+    } else {
+        changePlayer();
+    }
+}
