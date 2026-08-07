@@ -1,6 +1,5 @@
 const cells = document.querySelectorAll('.cell');
 const statusText = document.querySelector('#status');
-const turnText = document.querySelector('#turn');
 const restart = document.querySelector('#restart');
 
 const winConditions = [
@@ -37,7 +36,7 @@ function updateCell(cell, index) {
 }
 
 function changePlayer() {
-    currentPlayer = (currentPlayer === "O") ? "O" : "X";
+    currentPlayer = (currentPlayer === "O") ? "X" : "O";
     statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
 }
 
@@ -48,7 +47,6 @@ function checkWinner() {
         const cellA = options[condition[0]];
         const cellB = options[condition[1]];
         const cellC = options[condition[2]];
-    }
     if (cellA === "" || cellB === "" || cellC === "") {
         continue;
     }
@@ -56,11 +54,12 @@ function checkWinner() {
         roundWon = true;
         break;
     }
+}
     if (roundWon) {
         statusText.textContent = `Người chơi ${currentPlayer} chiến thắng!`;
         running = false;
     } else if (!options.includes("")) {
-        statusText.textContent = 'Hòa nhau!';
+        statusText.textContent = "Hòa nhau!";
         running = false;
     } else {
         changePlayer();
@@ -69,7 +68,7 @@ function checkWinner() {
 
 function restartGame() {
     currentPlayer = "O";
-    options = ["","","","","","","","",];
+    options = ["","","","","","","","",""];
     statusText.innerHTML = `Đến lượt của: <span id="turn">O</span>`;
     cells.forEach(cell => {
         cell.textContent = "";
