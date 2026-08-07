@@ -17,7 +17,7 @@ initGame();
 function initGame() {
     cells.forEach(cell => cell.addEventListener('click', cellClicked));
     restart.addEventListener('click', restartGame);
-    statusText.innerHTML = 'Đến lượt của: <span id="turn">${curentPlayer}</span>';
+    statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
     running = true;
 }
 
@@ -38,7 +38,7 @@ function updateCell(cell, index) {
 
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "O" : "X";
-    statusText.innerHTML = 'Đến lượt của: <span id="turn">${curentPlayer}</span>'
+    statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
 }
 
 function checkWinner() {
@@ -70,7 +70,7 @@ function checkWinner() {
 function restartGame() {
     currentPlayer = "O";
     options = ["","","","","","","","",];
-    statusText.innerHTML = 'Đến lượt của: <span id="turn">O</span>';
+    statusText.innerHTML = `Đến lượt của: <span id="turn">O</span>`;
     cells.forEach(cell => {
         cell.textContent = "";
         cell.classList.remove('x', 'o');
