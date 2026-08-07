@@ -13,3 +13,17 @@ let currentPlayer = "O";
 let running = false;
 
 initGame();
+
+function initGame() {
+    cells.forEach(cell => cell.addEventListener('click', cellClicked));
+    restart.addEventListener('click', restartGame);
+    statusText.innerHTML = 'Đến lượt của: <span id="turn">${curentPlayer}</span>';
+    running = true;
+}
+
+function cellClicked() {
+    const cellIndex = this.getAttribute('data-index');
+    if (options[cellIndex]) !== "" || !running) {
+    return;
+    }
+}
