@@ -23,7 +23,10 @@ function initGame() {
 
 function cellClicked() {
     const cellIndex = this.getAttribute('data-index');
-    if (options[cellIndex]) !== "" || !running) {
+    if (options[cellIndex] !== "" || !running) {
     return;
     }
+    updateCell(this, cellIndex);
+    checkWinner();
 }
+
