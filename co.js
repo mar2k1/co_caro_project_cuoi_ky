@@ -35,3 +35,8 @@ function updateCell(cell, index) {
     cell.textContent = currentPlayer;
     cell.classList.add(currentPlayer.toLowerCase());
 }
+
+function changePlayer() {
+    currentPlayer = (currentPlayer === "O") ? "O" : "X";
+    statusText.innerHTML = 'Đến lượt của: <span id="turn">${curentPlayer}</span>'
+}
