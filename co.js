@@ -8,7 +8,7 @@ const winConditions = [
     [0,3,6], [1,4,7], [2,5,8],
     [0,4,8], [2,4,6]
 ];
-let options = ["","","","","","","","","",];
+let options = ["","","","","","","","",""];
 let currentPlayer = "O";
 let running = false;
 
@@ -65,4 +65,15 @@ function checkWinner() {
     } else {
         changePlayer();
     }
+}
+
+function restartGame() {
+    currentPlayer = "O";
+    options = ["","","","","","","","",];
+    statusText.innerHTML = 'Đến lượt của: <span id="turn">O</span>';
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.classList.remove('x', 'o');
+    });
+    running = true;
 }
