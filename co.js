@@ -1,7 +1,8 @@
 const cells = document.querySelectorAll('.cell');
 const statusText = document.querySelector('#status');
 const restart = document.querySelector('#restart');
-
+const pvp = document.querySelector('#pvp');
+const pve = document.querySelector('#pve');
 const winConditions = [
     [0,1,2], [3,4,5], [6,7,8],
     [0,3,6], [1,4,7], [2,5,8],
@@ -9,6 +10,7 @@ const winConditions = [
 ];
 let options = ["","","","","","","","",""];
 let currentPlayer = "O";
+let gameMode = "pvp";
 let running = false;
 
 initGame();
@@ -16,6 +18,8 @@ initGame();
 function initGame() {
     cells.forEach(cell => cell.addEventListener('click', cellClicked));
     restart.addEventListener('click', restartGame);
+    pvp.addEventListener('click', () => setGameMode('pvp'));
+    pve.addEventListener('click', () => setGameMode('pve'));
     statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
     running = true;
 }
