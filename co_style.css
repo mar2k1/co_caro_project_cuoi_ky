@@ -88,3 +88,22 @@ button {
 button:hover {
     background-color: #1d4ed8;
 }
+.mode {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pve {
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.pvp {
+    background-color: #2563eb;
+    color: white;
+}
