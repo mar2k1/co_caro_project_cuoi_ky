@@ -43,6 +43,13 @@ function cellClicked() {
     }
 }
 
+function makeMove(cell, index) {
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
+    cell.classList.add(currentPlayer.toLowerCase());
+    checkWinner();
+}
+
 function updateCell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
