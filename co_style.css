@@ -95,15 +95,22 @@ button:hover {
     margin-bottom: 15px;
 }
 
-.pve {
-    background-color: #e2e8f0;
-    color: #475569;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-
-.pvp {
+#pvp {
     background-color: #2563eb;
     color: white;
+}
+
+#pve {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+#pvp.active, #pve.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+#pvp:not(.active), #pve:not(.active) {
+    background-color: #e2e8f0;
+    color: #475569;
 }
