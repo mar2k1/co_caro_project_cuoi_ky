@@ -84,7 +84,7 @@ function findBestMove(player) {
 
 function updateStatus() {
     const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (X)" : currentPlayer;
-    statusText.innerHTML = 'Đến lượt của: <span id="turn">${name}</\span>';
+    statusText.innerHTML = `Đến lượt của: <span id="turn">${name}</span>`;
 }
 
 function changePlayer() {
@@ -119,7 +119,7 @@ function checkWinner() {
 function restartGame() {
     currentPlayer = "O";
     options = ["","","","","","","","",""];
-    statusText.innerHTML = `Đến lượt của: <span id="turn">O</span>`;
+    updateStatus();
     cells.forEach(cell => {
         cell.textContent = "";
         cell.classList.remove('x', 'o');
