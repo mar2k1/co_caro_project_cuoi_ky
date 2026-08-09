@@ -20,7 +20,7 @@ function initGame() {
     restart.addEventListener('click', restartGame);
     pvp.addEventListener('click', () => setGameMode('pvp'));
     pve.addEventListener('click', () => setGameMode('pve'));
-    statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
+    updateStatus();
     running = true;
 }
 
@@ -82,10 +82,14 @@ function findBestMove(player) {
     return -1;
 }
 
+function updateStatus() {
+    const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (X)" : currentPlayer;
+    statusText.innerHTML = 'Đến lượt của: <span id="turn">${name}</\span>';
+}
+
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "X" : "O";
-    const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (X)" : currentPlayer;
-    statusText.innerHTML = `Đến lượt của: ${name}`;
+    updateStatus();
 }
 
 function checkWinner() {
