@@ -65,6 +65,17 @@ function computerMove() {
     }
 }
 
+function findBestMove(player) {
+    for (let pattern of winConditions) {
+        const [a, b, c] = pattern;
+        const values = [options[a],options[b],options[c]];
+        if (values.filter(v => v === player).length === 2 && values.includes("")) {
+            return pattern[values.indexOf("")];
+        }
+    }
+    return -1;
+}
+
 function updateCell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
