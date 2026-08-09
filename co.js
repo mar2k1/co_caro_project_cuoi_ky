@@ -53,15 +53,21 @@ function makeMove(cell, index) {
 function computerMove() {
     if (!running) return;
     let move = findBestMove('X');
-    if (move === -1) move = findBestMove('O');
-    if (move === -1 && options[4] === "") move = 4;
+    if (move === -1) {
+        move = findBestMove('O');
+    }
+    if (move === -1 && options[4] === "") {
+        move = 4;
+    }
     if (move === -1) {
         const emptyIndices = options.map((v,i) => v === "" ? i : null).filter(v => v!== null);
-        move = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+        if (emptyIndices.length > 0) {
+            move = emptyIndices [Math.floor(Math.random() * emptyIndices.length)];
+        }
     }
     if (move !== undefined && move !== -1) {
         const targetCell = document.querySelector(`.cell[data-index="${move}"]`);
-        makeMove(targetCell,move);
+        makeMove(targetCell, move);
     }
 }
 
