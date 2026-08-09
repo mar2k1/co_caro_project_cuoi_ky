@@ -76,12 +76,6 @@ function findBestMove(player) {
     return -1;
 }
 
-function updateCell(cell, index) {
-    options[index] = currentPlayer;
-    cell.textContent = currentPlayer;
-    cell.classList.add(currentPlayer.toLowerCase());
-}
-
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "X" : "O";
     const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (O)" : currentPlayer;
