@@ -87,6 +87,23 @@ function updateStatus() {
     statusText.innerHTML = `Đến lượt của: <span id="turn">${name}</span>`;
 }
 
+function setGameMode(mode) {
+    if (gameMode === mode) return;
+    gameMode = mode;
+    if (mode === 'pvp') {
+        pvp.style.backgroundColor = '#2563eb';
+        pvp.style.color = 'white';
+        pve.style.backgroundColor = '#e2e8f0';
+        pve.style.color = '#475569';
+    } else {
+        pve.style.backgroundColor = '#2563eb';
+        pve.style.color = 'white';
+        pvp.style.backgroundColor = '#e2e8f0';
+        pvp.style.color = '#475569';
+    }
+    restartGame();
+}
+
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "X" : "O";
     updateStatus();
