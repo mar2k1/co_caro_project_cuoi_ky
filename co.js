@@ -50,6 +50,16 @@ function makeMove(cell, index) {
     checkWinner();
 }
 
+function computerMove() {
+    if (!running) return;
+    let move = findBestMove('X');
+    if (move === -1) move = findBestMove('O');
+    if (move === -1 && options[4] === "") move = 4;
+    if (move === -1) {
+        const
+    }
+}
+
 function updateCell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
