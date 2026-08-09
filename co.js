@@ -51,7 +51,7 @@ function makeMove(cell, index) {
 }
 
 function computerMove() {
-    if (!running) return;
+    if (!running || currentPlayer !== 'X') return;
     let move = findBestMove('X');
     if (move === -1) {
         move = findBestMove('O');
