@@ -84,7 +84,8 @@ function updateCell(cell, index) {
 
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "X" : "O";
-    statusText.innerHTML = `Đến lượt của: ${currentPlayer}`;
+    const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (O)" : currentPlayer;
+    statusText.innerHTML = `Đến lượt của: ${name}`;
 }
 
 function checkWinner() {
