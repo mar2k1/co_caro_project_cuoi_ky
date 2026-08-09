@@ -38,7 +38,7 @@ function cellClicked() {
     return;
     }
     makeMove(this, cellIndex);
-    if (gameMode === 'pve' && running && currentPlayer === 'O') {
+    if (gameMode === 'pve' && running && currentPlayer === 'X') {
         setTimeout(computerMove, 400);
     }
 }
@@ -78,7 +78,7 @@ function findBestMove(player) {
 
 function changePlayer() {
     currentPlayer = (currentPlayer === "O") ? "X" : "O";
-    const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (O)" : currentPlayer;
+    const name = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy (X)" : currentPlayer;
     statusText.innerHTML = `Đến lượt của: ${name}`;
 }
 
