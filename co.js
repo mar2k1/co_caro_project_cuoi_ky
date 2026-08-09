@@ -24,13 +24,23 @@ function initGame() {
     running = true;
 }
 
+function setGameMode(mode) {
+    if (gameMode === mode) return;
+    gameMode = mode;
+    pvp.classList.toggle('active', mode === 'pvp');
+    pve.classList.toggle('active', mode === 'pve');
+    restartGame();
+}
+
 function cellClicked() {
     const cellIndex = this.getAttribute('data-index');
-    if (options[cellIndex] !== "" || !running) {
+    if (options[cellIndex] !== "" || !running || (gameMode === 'pve' && currentPlayer === 'O')) {
     return;
     }
-    updateCell(this, cellIndex);
-    checkWinner();
+    makeMove(this, cellIndex);
+    if (gameMode === 'pve' && running && currentPlayer === 'O') {
+        setTimeout(computerMove, 400);
+    }
 }
 
 function updateCell(cell, index) {
