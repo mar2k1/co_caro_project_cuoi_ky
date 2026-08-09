@@ -34,7 +34,7 @@ function setGameMode(mode) {
 
 function cellClicked() {
     const cellIndex = this.getAttribute('data-index');
-    if (options[cellIndex] !== "" || !running || (gameMode === 'pve' && currentPlayer === 'O')) {
+    if (options[cellIndex] !== "" || !running || (gameMode === 'pve' && currentPlayer === 'X')) {
     return;
     }
     makeMove(this, cellIndex);
@@ -95,7 +95,7 @@ function checkWinner() {
     }
 }
     if (roundWon) {
-        const winnerName = (gameMode === 'pve' && currentPlayer === 'O') ? "Máy" : `Người chơi ${currentPlayer}`;
+        const winnerName = (gameMode === 'pve' && currentPlayer === 'X') ? "Máy" : `Người chơi ${currentPlayer}`;
         statusText.textContent = `${winnerName} chiến thắng!`;
         running = false;
     } else if (!options.includes("")) {
